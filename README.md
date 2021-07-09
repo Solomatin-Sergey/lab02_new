@@ -105,13 +105,33 @@ git push origin patch1
 
 > 5. Создайте pull-request patch1 -> master.
 
-
+Solomatin-Sergey wants to merge 1 commit into master from patch1
 
 > 6. В локальной копии в ветке patch1 добавьте в исходный код комментарии.
+ 
+ vim hello_world.cpp
+
+ #include <iostream>
+int main ()
+{
+	std::string name;
+	std::cin >> name;
+	std::cout << "Hello world from " << name << "\n";
+}
+// my first comment
 
 > 7. commit, push.
+ 
+ git commit -m"add comment" -a
+ 
+[patch1 c06512d] add comment
+ 1 file changed, 1 insertion(+)
+ 
+git push origin patch1 
 
 > 8. Проверьте, что новые изменения есть в созданном на шаге 5 pull-request
+ 
+ ![]()
 
 > 9. В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
 
