@@ -196,4 +196,10 @@ main()
 
 > 3. commit, push, создайте pull-request patch2 -> master.
 	
+git commit -m"style=Mozilla" -a
+    
+git push origin patch2
 	
+> 4. В ветке master в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
+	
+
