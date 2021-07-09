@@ -206,4 +206,23 @@ git push origin patch2
 	
 > 5. Убедитесь, что в pull-request появились конфликты.
 	
+This branch has conflicts that must be resolved
 	
+> 6. Для этого локально выполните pull + rebase (точную последовательность команд, следует узнать самостоятельно). Исправьте конфликты.
+
+git checkout master
+	
+git rebase master
+	
+git checkout patch2
+	
+git merge patch2
+	
+> 7. Сделайте force push в ветку patch2
+	
+git push --force origin patch2
+	
+> 8. Убедитеcь, что в pull-request пропали конфликты.
+> 9. Вмержите pull-request patch2 -> master.
+	
+Pull request successfully merged and closed	
