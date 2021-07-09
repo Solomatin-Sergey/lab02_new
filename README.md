@@ -131,7 +131,7 @@ git push origin patch1
 
 > 8. Проверьте, что новые изменения есть в созданном на шаге 5 pull-request
  
- ![examine](lab02_new/add comment.png)
+ ![examine](https://github.com/Solomatin-Sergey/lab02_new/blob/master/add%20comment.png)
 
 > 9. В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
 
