@@ -133,30 +133,67 @@ git push origin patch1
  
  ![examine](https://github.com/Solomatin-Sergey/lab02_new/blob/master/add%20comment.png)
 
-> 9. В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
+> 9. В удалённом репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
+
+Solomatin-Sergey merged commit 891bda6 into master 1 minute ago
+	
+Solomatin-Sergey deleted the patch1 branch 1 minute ago
 
 > 10. Локально выполните pull.
-
+	
+git pull origin master
+	
 > 11. С помощью команды git log просмотрите историю в локальной версии ветки master.
+	
+git log
+commit ad46de7587171675c482d55bfbf74413bcbafb54 (HEAD -> master)
+Author: Solomatin-Sergey <serg.solomatin@inbox.ru>
+Date:   Fri Jul 9 12:21:45 2021 +0300
 
+     modified hello_world.cpp
+
+commit 0eb73a3716febd42225bd46b08ef614847daa0b6
+Author: Solomatin-Sergey <serg.solomatin@inbox.ru>
+Date:   Fri Jul 9 12:16:59 2021 +0300
+
+    add hello_world.cpp
+
+commit e7d00097c0eb0d0edf5afe2651874f2041c8ea61
+Author: Solomatin-Sergey <serg.solomatin@inbox.ru>
+Date:   Fri Jul 9 12:11:09 2021 +0300
+
+    add README.md
+	
 > 12. Удалите локальную ветку patch1.
-
-### Part III.
-
+	
+git branch -D patch1
+	
+Ветка patch1 удалена (была 891bda6).
+	
+### Part III.	
+	
 > 1. Создайте новую локальную ветку patch2.
-
+	
+git branch patch2
+	
+git checkout patch2
+	
+Переключено на ветку «patch2»
+	
 > 2. Измените code style с помощью утилиты clang-format. Например, используя опцию -style=Mozilla.
+	
+clang-format -style=Mozilla hello_world.cpp
+	
+#include <iostream>
+using namespace std;
+int
+main()
+{
+  string name;
+  cin >> name;
+  cout << "Hello world from " << name << "\n";
+}
 
 > 3. commit, push, создайте pull-request patch2 -> master.
-
-> 4. В ветке master в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
-
-> 5. Убедитесь, что в pull-request появились конфликты.
-
-> 6. Для этого локально выполните pull + rebase (точную последовательность команд, следует узнать самостоятельно). Исправьте конфликты.
-
-> 7. Сделайте force push в ветку patch2
-
-> 8. Убедитеcь, что в pull-request пропали конфликты.
-
-> 9. Вмержите pull-request patch2 -> master. 
+	
+	
