@@ -1,0 +1,142 @@
+# lab02_dz
+## Изучение систем контроля версий на примере Git
+### Part I.
+> 1. Создайте пустой репозиторий на сервисе github.com (или gitlab.com, или bitbucket.com).
+
+Репозиторий создан.
+
+> 2. Выполните инструкцию по созданию первого коммита на странице репозитория, созданного на предыдещем шаге.
+
+vim README.md
+
+git add README.md
+
+git commit -m "add README.md"
+
+[master (корневой коммит) e7d0009] add README.md
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+ 
+ > 3.Создайте файл hello_world.cpp в локальной копии репозитория (который должен был появиться на шаге 2). 
+ > Реализуйте программу Hello world на языке C++ используя плохой стиль кода. Например, после заголовочных файлов вставьте строку using namespace std;. 
+ 
+#include <iostream>
+using namespace std; 
+int main ()
+{ 
+cout << "Hello world\n"; 
+}
+
+> 4. Добавьте этот файл в локальную копию репозитория.
+
+git add hello_world.cpp
+
+> 5. Закоммитьте изменения с осмысленным сообщением.
+
+git commit -m "add hello_world.cpp"
+
+[master 0eb73a3] add hello_world.cpp
+ 1 file changed, 6 insertions(+)
+ create mode 100644 hello_world.cpp
+ 
+ > 6. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивалось имя пользователя. 
+ > А в стандартный поток вывода печаталось сообщение Hello world from @name, где @name имя пользователя.
+ 
+#include <iostream>
+using namespace std;
+int main ()
+{
+string name;
+cin >> name;
+cout << "Hello world from " << name << "\n";
+}
+
+> 7. Закоммитьте новую версию программы. Почему не надо добавлять файл повторно git add?
+
+git commit -m " modified hello_world.cpp" -a
+
+[master ad46de7]  modified hello_world.cpp
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+ 
+ > 8. Запуште изменения в удалёный репозиторий.
+ 
+ git push origin master
+ 
+ > 9. Проверьте, что история коммитов доступна в удалёный репозитории.
+ 
+ Можно зайти в файл hello_world.cpp, а потом во вкладку History. История коммитов доступна.
+ 
+ ### Part II.
+
+> 1. В локальной копии репозитория создайте локальную ветку patch1.
+
+git branch patch1
+
+git checkout patch1
+
+Переключено на ветку «patch1»
+
+
+> 2. Внесите изменения в ветке patch1 по исправлению кода и избавления от using namespace std;.
+
+vim hello_world.cpp
+
+#include <iostream>
+    int main ()
+    {
+        std::string name;
+        std::cin >> name;
+        std::cout << "Hello world from " << name << "\n";
+    }
+
+
+> 3. commit, push локальную ветку в удалённый репозиторий.
+
+git commit -m "correct hello_world.cpp" -a
+
+[patch1 d91e307] correct hello_world.cpp
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+ 
+git push origin patch1
+
+> 4. Проверьте, что ветка patch1 доступна в удалённом репозитории.
+
+Теперь веток 2: master и patch1.
+
+> 5. Создайте pull-request patch1 -> master.
+
+
+
+> 6. В локальной копии в ветке patch1 добавьте в исходный код комментарии.
+
+> 7. commit, push.
+
+> 8. Проверьте, что новые изменения есть в созданном на шаге 5 pull-request
+
+> 9. В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
+
+> 10. Локально выполните pull.
+
+> 11. С помощью команды git log просмотрите историю в локальной версии ветки master.
+
+> 12. Удалите локальную ветку patch1.
+
+### Part III.
+
+> 1. Создайте новую локальную ветку patch2.
+
+> 2. Измените code style с помощью утилиты clang-format. Например, используя опцию -style=Mozilla.
+
+> 3. commit, push, создайте pull-request patch2 -> master.
+
+> 4. В ветке master в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
+
+> 5. Убедитесь, что в pull-request появились конфликты.
+
+> 6. Для этого локально выполните pull + rebase (точную последовательность команд, следует узнать самостоятельно). Исправьте конфликты.
+
+> 7. Сделайте force push в ветку patch2
+
+> 8. Убедитеcь, что в pull-request пропали конфликты.
+
+> 9. Вмержите pull-request patch2 -> master. 
